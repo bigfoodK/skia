@@ -907,7 +907,8 @@ public:
     glInfo.fFormat = GR_GL_RGBA8;
     glInfo.fTarget = GR_GL_TEXTURE_2D;
 
-    GrBackendTexture backendTexture(fInfo.width(), fInfo.height(), mipmapped, glInfo);
+    static constexpr auto kMipmapped = GrMipmapped::kNo;
+    GrBackendTexture backendTexture(fInfo.width(), fInfo.height(), kMipmapped, glInfo);
 
     // In order to bind the image source to the texture, makeTexture has changed which
     // texture is "in focus" for the WebGL context.
